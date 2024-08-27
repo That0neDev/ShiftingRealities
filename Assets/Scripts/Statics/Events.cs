@@ -8,5 +8,6 @@ namespace Scripts.Statics
         public static Action TutorialFinished;
         public static Action LevelInitialized;
         public static Action<int> LevelCompleted;
+        public static Action GameInput;
     }
 }

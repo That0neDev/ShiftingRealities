@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Statics\Enums.cs" />
+    <Compile Include="Assets\Scripts\Level\Level.cs" />
     <Compile Include="Assets\Scripts\Statics\Events.cs" />
     <Compile Include="Assets\Scripts\Statics\Data.cs" />
     <Compile Include="Assets\Scripts\UI\Tutorial\IntroText.cs" />
