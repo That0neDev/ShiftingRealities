@@ -15,13 +15,12 @@ namespace Scripts.UI{
         private Text textLabel;
         private Action<int> TextCompleted;
         private readonly List<string> Dialogues = new(){
-            new("Welcome to Shifting Realities! To continue, press the Enter button."),
-            new("In this game, you will try to solve platforming puzzles in a constantly shifting two diffrent realities."),
-            new("Your task is to reach to the end of the levels."),
-            new("Your character is a cube. Holding arrow keys while pressing space will dash the cube to the direction."),
-            new("If your cube touches a spot with same color, you will get hurt and the level will reset."),
-            new("To prevent this, you can shift the reality and swap the colors on the map. This will create a transition and you will be safe while this transition happens"),
-            new("You can shift the reality by pressing S."),
+            new("Welcome to Shifting Realities! Press enter to continue."),
+            new("In this game, you'll solve platforming puzzles by navigating constantly shifting realities."),
+            new("Your goal is to reach the end of each level."),
+            new("You control a cube. Pressing space will alternate direction between Up and Right."),
+            new("If you touch a spot with same color, the level will reset."),
+            new("To prevent this, you can shift the reality and swap the colors on the map. This will create a transition."),
             new("There are 10 levels. Good luck!")
         };
 
@@ -58,11 +57,10 @@ namespace Scripts.UI{
             if (Dialogues.Count == index + 1)
                 EndDialogue();
             else
-                ShowText(index + 1);
+                StartCoroutine(ShowText(index + 1));
         }
         private void EndDialogue(){
-            //send event tutorial ended
-            print("Tutorial ended");
+            Events.TutorialFinished.Invoke();
             Destroy(gameObject);
         }
 
