@@ -65,11 +65,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Statics\Enums.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerLight.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMain.cs" />
+    <Compile Include="Assets\Test\TestPlayerCollision.cs" />
     <Compile Include="Assets\Scripts\Level\Level.cs" />
     <Compile Include="Assets\Scripts\Statics\Events.cs" />
     <Compile Include="Assets\Scripts\Statics\Data.cs" />
     <Compile Include="Assets\Scripts\UI\Tutorial\IntroText.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerNight.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
