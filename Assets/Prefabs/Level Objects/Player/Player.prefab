@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c847718b1d85614ea8c5ce79325b9a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LightPlayer: {fileID: 5709871555298647346}
-  NightPlayer: {fileID: 6626165286942354662}
+  LightPlayer: {fileID: 6160514525057486449}
+  NightPlayer: {fileID: 4226297965383797193}
+  stateLocked: 0
 --- !u!1 &5709871555298647346
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,10 +145,10 @@ BoxCollider2D:
   m_GameObject: {fileID: 5709871555298647346}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d0fc88c2398f35d4683a3cbc003c10b7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -196,7 +197,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 2
-  m_Material: {fileID: 6200000, guid: 39961d3de3e09ca45a538d26b1cf18d8, type: 2}
+  m_Material: {fileID: 6200000, guid: d0fc88c2398f35d4683a3cbc003c10b7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -220,9 +221,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Body: {fileID: 6172103965607964558}
+  Renderer: {fileID: 1731224733309949244}
+  State: 1
+  playerMain: {fileID: 6962117332201084550}
   jumpMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
 --- !u!1 &6626165286942354662
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &399228733914204506
 Transform:
   m_ObjectHideFlags: 0
@@ -322,7 +326,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 320
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -339,7 +343,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -353,7 +357,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &390771236191823725
 Rigidbody2D:
@@ -363,14 +367,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6626165286942354662}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -395,6 +399,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Body: {fileID: 390771236191823725}
+  Renderer: {fileID: 7703001340754945168}
+  State: 2
+  playerMain: {fileID: 6962117332201084550}
   Interactable:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
+  lightPlayer: {fileID: 5316939245645825282}

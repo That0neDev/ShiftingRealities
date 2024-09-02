@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Scripts.Levels{
     public class Level : MonoBehaviour
     {
+        private Vector2 startPos;
         private const float MaxSpeed = 5;
         private bool inputAllowed = false;
         private bool InputAllowed {
@@ -36,25 +37,37 @@ namespace Scripts.Levels{
 
         private IEnumerator IeLose(){
             InputAllowed = false;
+            Data.State = GameState.Light;
 
-            while ((Vector2)player.position != Vector2.zero){
+            while (player.position != Vector2.zero){
                 Vector2.MoveTowards(player.position,Vector2.zero,MaxSpeed);
                 yield return Time.deltaTime;
             }
 
-            
+            InputAllowed = true;
         }
 
         private void OnLose(){
-
+            StartCoroutine(IeLose());
         }
 
         private void OnWin(){
 
         }
 
+        private void OnDisable(){
+            LevelLost -= OnLose;
+            LevelWon  -= OnWin;
+        }
+
+        private void Awake(){
+            LevelLost += OnLose;
+            LevelWon  += OnWin;
+        }
+
         private void Start(){
-            
+            startPos = player.position;
+            Data.State = GameState.Light;
         }
     }
 }

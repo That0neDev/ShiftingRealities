@@ -7,38 +7,17 @@ namespace Scripts.Player
 {
     public class PlayerMain : MonoBehaviour
     {
-        [SerializeField] GameObject LightPlayer;
-        [SerializeField] GameObject NightPlayer;
+        [SerializeField] PlayerBehaviour LightPlayer;
+        [SerializeField] PlayerBehaviour NightPlayer;
+        public bool stateLocked = false;
 
-        private void LightInit(){
-            NightPlayer.SetActive(false);
-            LightPlayer.SetActive(true);
-        }
-
-        private void NightInit(){
-            LightPlayer.SetActive(false);
-            
-            NightPlayer.transform.position = LightPlayer.transform.position;
-            NightPlayer.SetActive(true);
-        }
-
-        private void OnModeChange(GameState newState){
-
-            switch (newState)
-            {
-                case GameState.Light:
-                    LightInit();
-                    break;
-                case GameState.Dark:
-                    NightInit();
-                    break;
-                default:
-                    //Handle game end event here
-                    break;
-            }
+        
+        private void OnModeChange(){
+            if (Data.State == GameState.Dark)
+                NightPlayer.transform.position = LightPlayer.transform.position;
         }
         
-        private void Start(){
+        private void Awake(){
             Events.StateChanged += OnModeChange;
         }
     }

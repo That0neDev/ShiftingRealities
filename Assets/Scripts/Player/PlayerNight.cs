@@ -6,16 +6,18 @@ using UnityEngine;
 
 namespace Scripts.Player{
 
-    #nullable enable
     public class PlayerNight : PlayerBehaviour{
 
         private Vector2 direction  = Vector2.zero;
         private bool isInteracting = false;
         const float Force = 5;
+        const float pullForce = 30f;
 
         [SerializeField] LayerMask Interactable;
+        [SerializeField] Transform lightPlayer;
 
-        private GameObject? TryGetInteractable(){
+
+        private GameObject TryGetInteractable(){
             Collider2D[] Colliders = Physics2D.OverlapCircleAll(transform.position,1,Interactable);
             if (Colliders.Length == 0)
                 return null;
@@ -27,22 +29,26 @@ namespace Scripts.Player{
             //Object.GetComponent<Interactable>().Interact();
         }
 
-
         public override void Act()
         {
             if(isInteracting){
-                GameObject? obj = TryGetInteractable();
+                GameObject obj = TryGetInteractable();
                 if (obj != null)
                     Interact(obj);
             }
 
-            Body.AddForce(Force * direction);
+            Vector2 dist = transform.position - lightPlayer.position;
+            
+            if(direction != Vector2.zero)
+                Body.AddForce(Force * direction); 
         }
 
         public override void PollInput()
         {
-            if(Input.GetKeyDown(KeyCode.W)){
-                Events.StateChanged.Invoke(GameState.Light);
+            if(Input.GetKeyDown(KeyCode.Q) && playerMain.stateLocked == false){
+                playerMain.stateLocked = true;
+                Data.State = GameState.Light;
+                Invoke(nameof(Unlock), Data.StateChangeTime);
                 return;
             }
 
@@ -50,7 +56,19 @@ namespace Scripts.Player{
             float yDir = Input.GetAxis("Vertical");
             isInteracting = Input.GetKeyDown(KeyCode.Space);
 
-            direction = new(xDir,yDir);
+            if(enabled)
+                direction = new(xDir,yDir);
+            else
+                direction = Vector2.zero;
+        }
+
+        public override void OnActivationChange()
+        {
+            if(Data.State == State){
+                Renderer.color = Data.PlayerDarkOnColor;
+            }else{
+                Renderer.color = Data.PlayerDarkOffColor;
+            }
         }
     }
 }

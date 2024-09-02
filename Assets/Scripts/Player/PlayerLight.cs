@@ -34,8 +34,10 @@ namespace Scripts.Player{
 
         public override void PollInput()
         {
-            if(Input.GetKeyDown(KeyCode.W)){
-                Events.StateChanged.Invoke(GameState.Dark);
+            if(Input.GetKeyDown(KeyCode.Q) && playerMain.stateLocked == false){
+                playerMain.stateLocked = true;
+                Data.State = GameState.Dark;
+                Invoke(nameof(Unlock), Data.StateChangeTime);
                 return;
             }
 
@@ -46,6 +48,15 @@ namespace Scripts.Player{
         private void OnDrawGizmos(){
             Gizmos.DrawLine(transform.position,new(transform.position.x -0.5f,transform.position.y - distToGround - 0.5f));
             Gizmos.DrawLine(transform.position,new(transform.position.x +0.5f,transform.position.y - distToGround - 0.5f));
+        }
+
+        public override void OnActivationChange()
+        {
+            if(Data.State == State){
+                Renderer.color = Data.PlayerLightOnColor;
+            }else{
+                Renderer.color = Data.PlayerLightOffColor;
+            }
         }
     }
 }
