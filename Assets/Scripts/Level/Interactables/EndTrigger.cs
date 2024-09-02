@@ -1,21 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Scripts.Statics;
 using UnityEngine;
 
 namespace Scripts.Levels.Interactables
 {
     public class EndTrigger : Interactable
     {
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] int LevelID;
+        public override void Interact()
         {
-            
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            
+            Events.LevelCompleted.Invoke(LevelID);
         }
     }
 }
