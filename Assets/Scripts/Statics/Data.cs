@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,18 @@ namespace Scripts.Statics
 {
     public static class Data
     {
+        public static MonoBehaviour Game;
+        public static bool isStateChanging = false;
         private static GameState gameState = GameState.Idle;
         public static GameState State {get {return gameState;} set{
+
+                Game.Invoke("Wait", StateChangeTime);
+                if(isStateChanging)
+                    return;
+                isStateChanging = true;
                 gameState = value;
-                Debug.Log(gameState);
                 Events.StateChanged.Invoke();
+                
             }
         }
 

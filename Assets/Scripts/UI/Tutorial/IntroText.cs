@@ -16,12 +16,12 @@ namespace Scripts.UI{
         private Action<int> TextCompleted;
         private readonly List<string> Dialogues = new(){
             new("Welcome to Shifting Realities! Press enter to continue or ESC to skip."),
-            new("In this game, you'll solve platforming puzzles by navigating constantly shifting realities."),
+            new("In this game, you'll solve platforming puzzles by shifting realities."),
             new("Your goal is to reach the end of each level."),
             new("You control a cube. Both realities has their own way of moving."),
             new("When in light realm, use arrow keys to move and space to jump."),
-            new("When in night realm, use arrow keys to float with your spirit and press space to interact with the world."),
-            new("You can shift the reality by pressing W. There are 10 levels. Good luck!")
+            new("When in night realm, use arrow keys to float with your spirit."),
+            new("You can shift the reality by pressing W. There are 5 levels. Good luck!")
         };
 
         private IEnumerator ShowText(int index){

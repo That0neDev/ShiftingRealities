@@ -6,19 +6,13 @@ using UnityEngine;
 namespace Scripts.Player{
 
     public abstract class PlayerBehaviour : MonoBehaviour{
-        public Rigidbody2D Body;
-        public SpriteRenderer Renderer;
+        protected Rigidbody2D Body;
+        protected SpriteRenderer Renderer;
         public GameState State;
-        public PlayerMain playerMain;
-
 
         public abstract void Act();
         public abstract void PollInput();
         public abstract void OnActivationChange();
-
-        public void Unlock(){
-            playerMain.stateLocked = false;
-        }
 
         private void Update(){
 
@@ -32,7 +26,13 @@ namespace Scripts.Player{
         }
 
         private void Awake(){
+            Body = GetComponent<Rigidbody2D>();
+            Renderer = GetComponent<SpriteRenderer>();
             Events.StateChanged += OnActivationChange;
+        }
+
+        private void OnDisable(){
+            Events.StateChanged -= OnActivationChange;
         }
     }
 }

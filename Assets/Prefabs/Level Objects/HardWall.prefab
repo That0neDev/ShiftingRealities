@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: e0cb86ba60d5bec4eab70211822e682c, type: 3}
   m_Color: {r: 0.000048662678, g: 0.000048662678, b: 0.000048662678, a: 0.99930936}
   m_FlipX: 0
@@ -146,6 +146,3 @@ MonoBehaviour:
   Renderer: {fileID: 5716073310269595138}
   Collider2D: {fileID: 7222781448033642933}
   State: 1
-  OnColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
-  OffColor: {r: 1, g: 1, b: 1, a: 0.039215688}
-  t: 0

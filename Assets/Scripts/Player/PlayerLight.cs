@@ -7,6 +7,7 @@ namespace Scripts.Player{
 
     public class PlayerLight : PlayerBehaviour
     {
+        [SerializeField] Transform NightPlayer; 
         [SerializeField] LayerMask jumpMask;
         private bool isJumping = false;
         private float direction = 0;
@@ -24,7 +25,7 @@ namespace Scripts.Player{
                 Body.velocity = new(Body.velocity.x * 0.8f,Body.velocity.y);
             
             RaycastHit2D hit1 = Physics2D.Raycast(transform.position + new Vector3(0.45f, 0.5f), Vector2.down, distToGround,jumpMask);
-            RaycastHit2D hit2 = Physics2D.Raycast(transform.position + new Vector3(0.45f,-0.5f), Vector2.down, distToGround,jumpMask);
+            RaycastHit2D hit2 = Physics2D.Raycast(transform.position + new Vector3(-0.45f,-0.5f), Vector2.down, distToGround,jumpMask);
 
             if (isJumping  && (hit1.collider != null || hit2.collider != null))
                 Body.velocity = new(Body.velocity.x,jumpVelocity);
@@ -34,10 +35,8 @@ namespace Scripts.Player{
 
         public override void PollInput()
         {
-            if(Input.GetKeyDown(KeyCode.Q) && playerMain.stateLocked == false){
-                playerMain.stateLocked = true;
+            if(Input.GetKeyDown(KeyCode.Q)){
                 Data.State = GameState.Dark;
-                Invoke(nameof(Unlock), Data.StateChangeTime);
                 return;
             }
 
@@ -45,16 +44,13 @@ namespace Scripts.Player{
             isJumping = Input.GetKey(KeyCode.Space);
         }
 
-        private void OnDrawGizmos(){
-            Gizmos.DrawLine(transform.position,new(transform.position.x -0.5f,transform.position.y - distToGround - 0.5f));
-            Gizmos.DrawLine(transform.position,new(transform.position.x +0.5f,transform.position.y - distToGround - 0.5f));
-        }
-
         public override void OnActivationChange()
         {
             if(Data.State == State){
                 Renderer.color = Data.PlayerLightOnColor;
+                transform.position = NightPlayer.transform.position;
             }else{
+                print(Renderer);
                 Renderer.color = Data.PlayerLightOffColor;
             }
         }

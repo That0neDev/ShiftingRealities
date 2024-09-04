@@ -12,5 +12,9 @@ namespace Scripts.Levels.Interactables
         {
             Events.LevelCompleted.Invoke(LevelID);
         }
+        
+        private void OnTriggerEnter2D(Collider2D Collision){
+            Interact();
+        }
     }
 }

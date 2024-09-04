@@ -13,17 +13,12 @@ namespace Scripts.Levels.Interactables
         [SerializeField] GameState State;
 
         public virtual void Interact(){
-            if (State == Data.State)
+            if (Data.State == GameState.Dark)
                 print("Interacted.");
         }
 
-        private void OnTriggerEnter2D(Collider2D Collision){
-            Interact();
-        }
-
         private void SetColor(){
-            Color newColor = ColorHandler.GetNewColor(State);
-            ColorHandler.SetNewColor(Renderer,newColor);
+            Renderer.enabled = Data.State == State;
         }
 
         private void Awake(){
