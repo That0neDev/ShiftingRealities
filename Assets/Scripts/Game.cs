@@ -16,7 +16,7 @@ namespace Scripts
             
             if (levelObject.childCount > 0)
                 Destroy(levelObject.GetChild(0).gameObject);
-                    
+
             if(index == Levels.Count){
                 EndScene.SetActive(true);
                 return;
@@ -32,6 +32,7 @@ namespace Scripts
             levelObject = transform.GetChild(0);
             Events.TutorialFinished += () => {LoadLevel(0);};
             Events.LevelCompleted += (level) => {LoadLevel(level + 1);};
+            Events.ResetDemanded += (level) => {LoadLevel(level);};
         }
     }
 }

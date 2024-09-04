@@ -7,7 +7,7 @@ namespace Scripts.Levels.Interactables
 {
     public class EndTrigger : Interactable
     {
-        [SerializeField] int LevelID;
+        public int LevelID;
         public override void Interact()
         {
             Events.LevelCompleted.Invoke(LevelID);

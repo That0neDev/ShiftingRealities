@@ -42,6 +42,7 @@ namespace Scripts.Player{
 
             direction = Input.GetAxisRaw("Horizontal");
             isJumping = Input.GetKey(KeyCode.Space);
+
         }
 
         public override void OnActivationChange()
@@ -49,10 +50,7 @@ namespace Scripts.Player{
             if(Data.State == State){
                 Renderer.color = Data.PlayerLightOnColor;
                 transform.position = NightPlayer.transform.position;
-            }else{
-                print(Renderer);
-                Renderer.color = Data.PlayerLightOffColor;
-            }
+            }else Renderer.color = Data.PlayerLightOffColor;
         }
     }
 }

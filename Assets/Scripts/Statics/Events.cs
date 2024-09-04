@@ -6,8 +6,7 @@ namespace Scripts.Statics
     public static class Events{
         public static Action StateChanged;
         public static Action TutorialFinished;
-        public static Action LevelInitialized;
+        public static Action<int> ResetDemanded;
         public static Action<int> LevelCompleted;
-        public static Action GameInput;
     }
 }

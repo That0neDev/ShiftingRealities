@@ -21,6 +21,7 @@ namespace Scripts.UI{
             new("You control a cube. Both realities has their own way of moving."),
             new("When in light realm, use arrow keys to move and space to jump."),
             new("When in night realm, use arrow keys to float with your spirit."),
+            new("You can use Backspace to reset the level."),
             new("You can shift the reality by pressing W. There are 5 levels. Good luck!")
         };
 
