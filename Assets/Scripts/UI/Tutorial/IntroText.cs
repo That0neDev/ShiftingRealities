@@ -8,7 +8,6 @@ using Scripts.Statics;
 using System.Collections.Generic;
 
 
-
 namespace Scripts.UI{
     public class IntroText : MonoBehaviour
     {
@@ -22,7 +21,7 @@ namespace Scripts.UI{
             new("When in light realm, use arrow keys to move and space to jump."),
             new("When in night realm, use arrow keys to float with your spirit."),
             new("You can use Backspace to reset the level."),
-            new("You can shift the reality by pressing W. There are 5 levels. Good luck!")
+            new("You can shift the reality by pressing Q. There are 5 levels. Good luck!")
         };
 
         private IEnumerator ShowText(int index){

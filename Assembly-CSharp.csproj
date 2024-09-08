@@ -64,17 +64,17 @@
     <Analyzer Include="B:\Unity\Editors\2022.3.43f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Statics\Enums.cs" />
-    <Compile Include="Assets\Test\TestPlayerCollision.cs" />
-    <Compile Include="Assets\Scripts\Level\Interactables\EndTrigger.cs" />
-    <Compile Include="Assets\Scripts\Statics\ColorHandler.cs" />
-    <Compile Include="Assets\Scripts\Level\Blocks\Block.cs" />
     <Compile Include="Assets\Scripts\UI\CameraColor.cs" />
+    <Compile Include="Assets\Scripts\Statics\Enums.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLight.cs" />
+    <Compile Include="Assets\Test\TestPlayerCollision.cs" />
+    <Compile Include="Assets\Scripts\Level\Blocks\Block.cs" />
     <Compile Include="Assets\Scripts\Level\Level.cs" />
+    <Compile Include="Assets\Scripts\Level\Interactables\EndTrigger.cs" />
     <Compile Include="Assets\Scripts\Level\Interactable.cs" />
     <Compile Include="Assets\Scripts\Statics\Events.cs" />
     <Compile Include="Assets\Scripts\Statics\Data.cs" />
+    <Compile Include="Assets\Scripts\Statics\ColorHandler.cs" />
     <Compile Include="Assets\Scripts\UI\Tutorial\IntroText.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerNight.cs" />
@@ -399,6 +399,18 @@
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>B:\Unity\Editors\2022.3.43f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>B:\Unity\Editors\2022.3.43f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>B:\Unity\Editors\2022.3.43f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.GradleProject">
+      <HintPath>B:\Unity\Editors\2022.3.43f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.GradleProject.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
